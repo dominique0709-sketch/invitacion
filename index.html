@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Exclusiva</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    color:#333;
+}
+
+.container{
+    padding:40px 20px;
+}
+
+h1{
+    font-size:28px;
+}
+
+.exclusiva{
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.countdown{
+    font-size:20px;
+    margin:20px 0;
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    display:inline-block;
+}
+
+.boton{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#ff4e50;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+.boton:hover{
+    background:#ff1c1c;
+}
+
+input, textarea{
+    width:80%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:10px;
+    border:none;
+}
+
+.seccion{
+    margin-top:40px;
+}
+
+img{
+    width:200px;
+    border-radius:20px;
+    margin:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="exclusiva">
+Esta invitación es exclusiva para <span id="nombre">Invitado Especial</span> 💌
+</div>
+
+<h1>¡Estás invitado a un evento increíble! 🎉</h1>
+
+<div class="countdown" id="countdown"></div>
+
+<div class="seccion">
+<h2>📍 Ubicación</h2>
+<p>Salón de Eventos Ejemplo</p>
+<a class="boton" href="https://www.google.com/maps" target="_blank">Cómo llegar</a>
+</div>
+
+<div class="seccion">
+<h2>📸 Nosotros</h2>
+<img src="https://via.placeholder.com/200" alt="Foto 1">
+<img src="https://via.placeholder.com/200" alt="Foto 2">
+</div>
+
+<div class="seccion">
+<h2>🎶 Sugiere una canción</h2>
+<input type="text" placeholder="Nombre de la canción">
+<textarea placeholder="Mensaje o dedicatoria"></textarea>
+</div>
+
+</div>
+
+<script>
+// CAMBIA LA FECHA DEL EVENTO AQUÍ
+var fechaEvento = new Date("2026-12-31 20:00:00").getTime();
+
+var x = setInterval(function(){
+var ahora = new Date().getTime();
+var distancia = fechaEvento - ahora;
+
+var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+var horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+
+document.getElementById("countdown").innerHTML =
+"Faltan " + dias + " días " + horas + " horas y " + minutos + " minutos ⏳";
+
+if(distancia < 0){
+document.getElementById("countdown").innerHTML = "¡Es hoy! 🎉";
+}
+}, 1000);
+</script>
+
+</body>
+</html>
